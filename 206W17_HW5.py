@@ -57,10 +57,10 @@ except:
 def get_tweets_from_user(username):
 	unique_identifier = "twitter_{}".format(username)
 	if unique_identifier in CACHE_DICTION:
-		print('using cached data for', username)
+		
 		twitter_results = CACHE_DICTION[unique_identifier]		
 	else:
-		print('getting data from internet for', username)
+		
 		twitter_results = api.user_timeline(username)
 		CACHE_DICTION[unique_identifier] = twitter_results
 		f = open(CACHE_FNAME, 'w')
@@ -72,7 +72,7 @@ def get_tweets_from_user(username):
 		tweet_texts.append("TEXT: " + tweet["text"] + "\n" + "Created at: " + tweet['created_at'] + "\n")
 	return tweet_texts[:3]
 
-name = input("What is the username of the account you would like to retrieve tweets from? ")
+name = input("What would you like to search Tweets for? ")
 three_tweets = get_tweets_from_user(name)
 for t in three_tweets:
 	print(t)
