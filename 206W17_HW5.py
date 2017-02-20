@@ -69,13 +69,11 @@ def get_tweets_from_user(username):
 
 	tweet_texts = []
 	for tweet in twitter_results:
-		tweet_texts.append("TEXT:" + tweet["text"])
-		tweet_texts.append("Created at:" + tweet['created_at'])
-		tweet_texts.append('\n')
-	return tweet_texts [:3]
+		tweet_texts.append("TEXT: " + tweet["text"] + "\n" + "Created at: " + tweet['created_at'] + "\n")
+	return tweet_texts[:3]
 
 name = input("What is the username of the account you would like to retrieve tweets from? ")
-three_tweets = get_tweets_from_user(str(name))
+three_tweets = get_tweets_from_user(name)
 for t in three_tweets:
 	print(t)
 	
